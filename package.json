@@ -1,5 +1,5 @@
 {
-  "name": "ifon-process",
+  "name": "admin",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -37,8 +37,23 @@
     "less": "^3.0.4",
     "less-loader": "^5.0.0",
     "node-sass": "^4.9.2",
+    "postcss-loader": "^3.0.0",
+    "postcss-preset-env": "^6.7.0",
     "sass-loader": "^7.0.3",
     "vue-cli-plugin-element": "~1.0.1",
     "vue-template-compiler": "^2.6.11"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version",
+      "last 1 ie version"
+    ]
   }
 }

@@ -3,7 +3,7 @@ const { resolve, join } = require('path')
 module.exports = {
   // 配置选项
   devServer: {
-    contentBase: resolve(__dirname, 'src'),
+    contentBase: resolve(__dirname, 'dist'),
     compress: true,
     port: 8000,
     open: true
@@ -22,5 +22,5 @@ module.exports = {
         otherComponents: join(__dirname, 'src/components/otherComponents')
       }
     }
-  }
+  },
 }
