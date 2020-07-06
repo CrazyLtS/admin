@@ -1,16 +1,15 @@
 import Vue from 'vue'
 import App from './App.vue'
-import './registerServiceWorker'
 import router from './router'
 import store from './store'
 import './plugins/element.js'
-import VeHistogramr from 'v-charts/lib/histogram.common'
-import VeRing from 'v-charts/lib/ring.common'
-import VeLine from 'v-charts/lib/line.common'
+import './plugins/mavonEditor.js'
+import 'normalize.css'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
 
-Vue.component(VeHistogramr.name, VeHistogramr)
-Vue.component(VeRing.name, VeRing)
-Vue.component(VeLine.name, VeLine)
+Vue.use(VueAxios, axios)
+
 Vue.config.productionTip = false
 
 new Vue({

@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import Main from 'views/Main'
 
 Vue.use(VueRouter)
 
@@ -12,87 +13,42 @@ VueRouter.prototype.push = function push (location) {
 const routes = [
   {
     path: '/',
-    redirect: '/msgSystem'
+    name: 'App',
+    redirect: '/login'
   },
   {
-    path: '/msgSystem',
-    name: 'MsgSystem',
-    component: () => import('components/msgSystem/MsgSystem'),
+    path: '/main',
+    name: 'Main',
+    redirect: '/main/first',
+    component: Main,
     children: [
-      // 空白页
       {
-        path: 'blank',
-        name: 'Blank',
-        component: () => import('components/otherComponents/Blank')
+        path: 'first',
+        name: 'First',
+        component: () => import('components/First')
       },
       {
-        path: 'userIfon',
-        name: 'UserIfon',
-        component: () => import('contentComponents/UserIfon')
+        path: 'second',
+        name: 'Second',
+        component: () => import('components/Second')
       },
       {
-        path: 'message',
-        name: 'Message',
-        redirect: 'message/allmsg',
-        component: () => import('contentComponents/Message'),
-        children: [
-          {
-            path: 'allmsg',
-            name: 'AllMsg',
-            component: () => import('otherComponents/message/AllMsg')
-          },
-          {
-            path: 'comment',
-            name: 'Comment',
-            component: () => import('otherComponents/message/Comment')
-          },
-          {
-            path: 'news',
-            name: 'News',
-            component: () => import('otherComponents/message/News')
-          }
-        ]
-      },
-      {
-        path: 'dataView',
-        name: 'DataView',
-        component: () => import('contentComponents/DataView')
-      },
-      {
-        path: 'datacenter',
-        name: 'DataCenter',
-        component: () => import('contentComponents/DataCenter')
-      },
-      {
-        path: 'historyData',
-        name: 'HistoryData',
-        component: () => import('contentComponents/HistoryData')
-      },
-      {
-        path: 'icons',
-        name: 'Icons',
-        component: () => import('contentComponents/Icons')
-      },
-      {
-        path: 'sketchpad',
-        name: 'Sketchpad',
-        component: () => import('contentComponents/Sketchpad')
-      },
-      {
-        path: 'drag',
-        name: 'Drag',
-        component: () => import('contentComponents/Drag')
-      },
-      {
-        path: 'setting',
-        name: 'Setting',
-        component: () => import('contentComponents/Setting')
+        path: 'third',
+        name: 'Third',
+        component: () => import('components/Third')
       }
     ]
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: () => import('components/Login')
   }
 ]
 
 const router = new VueRouter({
+  mode: 'history',
+  base: process.env.BASE_URL,
   routes
 })
 

@@ -1,26 +1,26 @@
-const { resolve, join } = require('path')
+const { join } = require('path')
+
+const setPath = (url) => {
+  return join(__dirname, url)
+}
 
 module.exports = {
-  // 配置选项
   devServer: {
-    contentBase: resolve(__dirname, 'dist'),
-    compress: true,
-    port: 8000,
-    open: true
+    open: true,
+    host: '192.168.0.104',
+    port: 8080
   },
   // 配置webpack
   configureWebpack: {
     resolve: {
       extensions: ['.js', '.vue', '.json'],
       alias: {
-        src: join(__dirname, 'src'),
-        components: join(__dirname, 'src/components'),
-        // 主要组件
-        mainComponents: join(__dirname, 'src/components/msgSystem/mainComponents'),
-        assets: join(__dirname, 'src/assets'),
-        contentComponents: join(__dirname, 'src/components/msgSystem/contentComponents'),
-        otherComponents: join(__dirname, 'src/components/otherComponents')
+        src: setPath('src'),
+        views: setPath('src/views'),
+        components: setPath('src/components'),
+        assets: setPath('src/assets'),
+        public: setPath('public')
       }
     }
-  },
+  }
 }
